@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <h1>Ajax tutorial</h1>
+    <button id="btn">Hit me</button>
+    <p id="player-info"></p>
+    <script src="script.js"></script> -->
+
+
+    <script>
+        let myRequest=new Request("quotes.json");
+        fetch(myRequest).then(function(resp){
+            return resp.json();
+        })
+        .then(function(data){
+            console.log(data)
+        });
+    </script>
+
+</body>
+
+</html>
+

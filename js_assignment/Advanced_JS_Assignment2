@@ -1,0 +1,331 @@
+Question1 : Training Days
+
+sol: 
+
+const getRandEvent = () => {
+  const random = Math.floor(Math.random() * 3);
+
+  if (random === 0) {
+    return 'Marathon';
+  } else if (random === 1) {
+    return 'Triathlon';
+  } else if (random === 2) {
+    return 'Pentathlon';
+  }
+};
+
+const getTrainingDays = event => {
+  let days;
+  if (event === 'Marathon') {
+    days = 50;
+  } else if (event === 'Triathlon') {
+    days = 100;
+  } else if (event === 'Pentathlon') {
+    days = 200;
+  }
+
+  return days;
+};
+
+const name = 'Nala';
+
+const logEvent = (event, name) => {
+  console.log(`${name}'s event is: ${event}`);
+};
+
+const logTime = (days, name) => {
+  console.log(`${name}'s time to train is: ${days} days`);
+};
+
+const event = getRandEvent();
+const days = getTrainingDays(event);
+
+logEvent(event, name);
+logTime(days, name);
+
+const event2 = getRandEvent();
+const days2 = getTrainingDays(event2);
+const name2 = 'Warren';
+
+logEvent(event2, name2);
+logTime(days2, name2);
+
+
+output:
+
+Nala's event is: Triathlon
+Nala's time to train is: 100 days
+Warren's event is: Pentathlon
+Warren's time to train is: 200 days
+
+
+Question 2: Secret Message
+
+sol:
+
+let secretMessage = ['Learning', 'is', 'not', 'about', 'what', 'you', 'get', 'easily', 'the', 'first', 'time,', 'it', 'is', 'about', 'what', 'you', 'can', 'figure', 'out.', '-2015,', 'Chris', 'Pine,', 'Learn', 'JavaScript'];
+
+secretMessage.pop();
+console.log(secretMessage.length);
+
+secretMessage.push('to','Program');
+
+secretMessage[7]='right';
+
+secretMessage.shift();
+secretMessage.unshift('Programming');
+
+secretMessage.splice(6,5,'know');
+console.log(secretMessage.join(' '));
+
+
+output :
+
+23
+Programming is not about what you know it is about what you can figure out. -2015, Chris Pine, Learn to Program
+
+
+
+Question 3: Whale Talk
+
+sol :
+
+//const input='Hi, Human';
+const input='a whale of a deal!'
+
+const vowels = ['a', 'e', 'i', 'o', 'u'];
+
+var resultArray=[];
+
+for(let i=0;i<input.length;i++){
+   for (let j = 0; j < vowels.length; j++) {
+   if(input[i]===vowels[j]){
+     resultArray.push(input[i])
+   }
+  }
+  if(input[i]=='e' || input[i]=='u'){
+    resultArray.push(input[i])
+  }
+  
+}
+console.log(resultArray.join('').toUpperCase());
+
+
+output:
+
+AAEEOAEEA
+
+
+
+Question 4: Mini Linter
+
+sol :
+
+let story = 'Last weekend, I took literally the most beautiful bike ride of my life. The route is called "The 9W to Nyack" and it actually stretches all the way from Riverside Park in Manhattan to South Nyack, New Jersey. It\'s really an adventure from beginning to end! It is a 48 mile loop and it basically took me an entire day. I stopped at Riverbank State Park to take some extremely artsy photos. It was a short stop, though, because I had a really long way left to go. After a quick photo op at the very popular Little Red Lighthouse, I began my trek across the George Washington Bridge into New Jersey.  The GW is actually very long - 4,760 feet! I was already very tired by the time I got to the other side.  An hour later, I reached Greenbrook Nature Sanctuary, an extremely beautiful park along the coast of the Hudson.  Something that was very surprising to me was that near the end of the route you actually cross back into New York! At this point, you are very close to the end.';
+
+let overusedWords = ['really', 'very', 'basically'];
+
+let unnecessaryWords = ['extremely', 'literally', 'actually' ];
+
+let storyWords=story.split(' ');
+console.log(storyWords.length);
+
+let betterWords=storyWords.filter(word=> !unnecessaryWords.includes(word));
+var overWordCount = 0;
+overusedWords.forEach(function(oWord) {
+  
+  betterWords.filter(function(sWord) {
+    if (oWord === sWord) {
+      overWordCount++;
+    }
+  });
+  });
+console.log(overWordCount);
+  var sentenceCount=0;
+  for(i of betterWords){
+    if(i[i.length-1]==='.' || i[i.length-1]==='!'){
+      sentenceCount++
+    }
+  }
+console.log(sentenceCount);
+console.log(betterWords.join(' '));
+
+
+output :
+
+188
+8
+12
+Last weekend, I took the most beautiful bike ride of my life. The route is called "The 9W to Nyack" and it stretches all the way from Riverside Park in Manhattan to South Nyack, New Jersey. It's really an adventure from beginning to end! It is a 48 mile loop and it basically took me an entire day. I stopped at Riverbank State Park to take some artsy photos. It was a short stop, though, because I had a really long way left to go. After a quick photo op at the very popular Little Red Lighthouse, I began my trek across the George Washington Bridge into New Jersey.  The GW is very long - 4,760 feet! I was already very tired by the time I got to the other side.  An hour later, I reached Greenbrook Nature Sanctuary, an beautiful park along the coast of the Hudson.  Something that was very surprising to me was that near the end of the route you cross back into New York! At this point, you are very close to the end.
+
+
+
+
+Question 5: Meal Maker
+
+sol :
+
+const menu = {
+  _courses: {
+    _appetizers: [],
+    _mains: [],
+    _desserts: [],
+    
+    get appetizers() {
+      return this._appetizers;
+    },
+    set appetizers(appet) {
+      this._appetizers = appet;
+    },
+    get mains() {
+      return this._mains;
+    },
+    set mains(main) {
+      this._mains = main;
+    },
+    get desserts() {
+      return this._desserts;
+    },
+    set desserts(dessert) {
+      this._desserts = dessert;
+    },
+  },
+  
+  get courses() {
+    return {
+      appetizers: this._courses.appetizers,
+      mains: this._courses.mains,
+      desserts: this._courses.desserts,
+    };
+},
+  
+  addDishToCourse (courseName, dishName, dishPrice) {
+    const dish = {
+      name: dishName,
+      price: dishPrice,
+    };
+    
+    this._courses[courseName].push(dish);
+  },
+  
+  getRandomDishFromCourse (courseName) {
+    const dishes = this._courses[courseName];
+    const randomIndex = Math.floor(Math.random() * dishes.length);
+    return dishes[randomIndex];
+  },
+  
+  generateRandomMeal() {
+    const appetizer = this.getRandomDishFromCourse('appetizers');
+    const main = this.getRandomDishFromCourse('mains');
+    const dessert = this.getRandomDishFromCourse('desserts');
+    const totalPrice = appetizer.price + main.price + dessert.price;
+    
+    return `Your meal is ${appetizer.name}, ${main.name} and ${dessert.name}. The price is $${totalPrice.toFixed(2)}.`;
+  },
+};
+
+menu.addDishToCourse('appetizers', ' Rajma', 6);
+menu.addDishToCourse('appetizers', 'Naan', 5.25);
+menu.addDishToCourse('appetizers', 'Rice', 3);
+
+menu.addDishToCourse('mains', 'Manchurian', 15);
+menu.addDishToCourse('mains', 'Chilli Potato', 12);
+menu.addDishToCourse('mains', 'Momos', 10);
+
+menu.addDishToCourse('desserts', 'Cheese Cake', 4);
+menu.addDishToCourse('desserts', 'Pudding', 4);
+menu.addDishToCourse('desserts', 'Cheese toast', 4);
+
+let meal = menu.generateRandomMeal();
+
+console.log(meal);
+
+
+output :
+
+Your meal is Naan, Manchurian and Cheese toast. The price is $24.25.
+
+
+
+Question 6 :  Team Stats
+
+sol: 
+
+var team={
+  _players:[{
+  firstName: 'Virat',
+  lastName: 'Kohli',
+  age: 11
+},
+{
+  firstName: 'MS',
+  lastName: 'Dhoni',
+  age: 20
+},
+{
+  firstName: 'Suresh',
+  lastName: 'Raina',
+  age: 25
+}],
+  _games:[
+    {
+  opponent: 'Broncos',
+  teamPoints: 42,
+  opponentPoints: 27
+},
+{
+  opponent: 'Australia',
+  teamPoints: 20,
+  opponentPoints: 25
+},
+{
+  opponent: 'India',
+  teamPoints: 30,
+  opponentPoints: 35
+}
+  ],
+   get games() {
+       return this._games;
+   },
+   get players(){
+     return this._players;
+   },
+   addPlayer(firstName, lastName, age) {
+    let player = {
+      firstName: firstName,
+      lastName: lastName,
+      age: age
+    };
+ 
+    this.players.push(player);
+  },
+  addGame(opp, myPts, oppPts) {
+    const game = {
+      opponent: opp,
+      teamPoints: myPts,
+      opponentPoints: oppPts
+    };
+    this.games.push(game);
+  }
+};
+team.addPlayer('Steph', 'Curry', 28);
+team.addPlayer('Lisa', 'Leslie', 44);
+team.addPlayer('Bugs', 'Bunny', 76);
+console.log(team.players);
+
+team.addGame('Titans', 100, 98);
+console.log(team.games);
+
+
+output :
+
+[ { firstName: 'Virat', lastName: 'Kohli', age: 11 },
+  { firstName: 'MS', lastName: 'Dhoni', age: 20 },
+  { firstName: 'Suresh', lastName: 'Raina', age: 25 },
+  { firstName: 'Steph', lastName: 'Curry', age: 28 },
+  { firstName: 'Lisa', lastName: 'Leslie', age: 44 },
+  { firstName: 'Bugs', lastName: 'Bunny', age: 76 } ]
+[ { opponent: 'Broncos', teamPoints: 42, opponentPoints: 27 },
+  { opponent: 'Australia', teamPoints: 20, opponentPoints: 25 },
+  { opponent: 'India', teamPoints: 30, opponentPoints: 35 },
+  { opponent: 'Titans', teamPoints: 100, opponentPoints: 98 } ]

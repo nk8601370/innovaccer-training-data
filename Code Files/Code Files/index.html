@@ -1,0 +1,45 @@
+<!-- This project is to learn the OOP concept in JS.-->
+<!-- Project is about the MovieList-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>My Anime List</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </head>
+
+    <body style="margin: 5%;">
+        <div style="text-align:center;" class="bg-dark text-white"> <h1>My Anime List Creator</h1> </div>
+
+        <div style="text-align: center;" class="border">
+            <form id="movie-form" style="padding: 2%;">
+                <input type="text" id="name" placeholder="Anime Name"> <br><br>
+                <input type = "text" id="genere" placeholder="Anime Genere"><br><br>
+                <input type="text" id="ott" placeholder="Which OTT platform?"><br><br>
+                <input type="submit" class="btn-success" value="Add Anime">
+            </form>
+           
+
+            <table style="padding: 2%;">
+                <thead>
+                    <tr>
+                        <td><b>Anime Name</b></td>
+                        <td><b>Genere </b></td>
+                        <td><b>OTT</b></td>
+                    </tr>
+                </thead>
+                <tbody id="anime-list"></tbody>
+            </table>
+        </div>
+
+    </body>
+    <script src = "script.js"></script>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <title>Document</title>
+<body>
+<div class="container">
+    <h1 class="text-success text-center">Complete form validation in JS</h1>
+    <div class="col-lg-8 m-auto d-block">
+        <form action="#" onsubmit="return validation()" class="bg-light">
+
+            <div class=form-group>
+                <label>Name:</label>
+                <input type="text" name="user" class="form-control" id="user">
+                <span id="username" class="text-danger"></span>
+            </div>
+            <div class=form-group>
+                <label>Email:</label>
+                <input type="text" name="email" class="form-control" id="email">
+                <span id="emailid" class="text-danger"></span>
+            </div>
+            <div class=form-group>
+                <label>Phone:</label>
+                <input type="text" name="mobile" class="form-control" id="mobile">
+                <span id="phone" class="text-danger"></span>
+            </div>
+            <div class=form-group>
+                <label>DOB:</label>
+                <input type="date" name="dob" class="form-control" id="dob">
+                <span id="birth" class="text-danger"></span>
+            </div>
+            <div class=form-group>
+                <label>Password:</label>
+                <input type="text" name="pwd" class="form-control" id="pwd">
+                <span id="passwords" class="text-danger"></span>
+            </div>
+            <input type="submit" name="submit" value="submit" class="btn btn-success">
+        </form>
+    </div>
+</div>
+
+<script>
+
+    function validation(){
+        var user=document.getElementById('user').value;
+        var email=document.getElementById('email').value;
+        var mobile=document.getElementById('mobile').value;
+        var dob=document.getElementById('dob').value;
+        var pwd=document.getElementById('pwd').value;
+        if(user==""){
+            document.getElementById('username').innerHTML="Value Required";
+            return false;
+        }
+        if(user.length>25)
+        {
+            document.getElementById('username').innerHTML="Maximum length is 25";
+            return false;
+        }
+        if(!isNaN(user)){
+            document.getElementById('username').innerHTML="Only characters required";
+            return false;
+        }
+        if(email==""){
+            document.getElementById('emailid').innerHTML="Value Required";
+            return false;
+        }
+        if(email.indexOf('@') <= 0){
+            document.getElementById('emailid').innerHTML="Enter valid email";
+            return false;
+        }
+        if((email.charAt(email.length-4)!='.') && (email.charAt(email.length-3)!='.')){
+            document.getElementById('emailid').innerHTML="Enter valid email";
+            return false;
+        }
+        if(mobile==""){
+            document.getElementById('phone').innerHTML="Value Required";
+            return false;
+        }
+        if(isNaN(mobile)){
+            document.getElementById('phone').innerHTML="Only Number's Required";
+            return false;
+        }
+        if(mobile.length!=10){
+            document.getElementById('phone').innerHTML="Number is not valid";
+            return false;
+        }
+        var dobirth = new Date(dob);  
+    var month_diff = Date.now() - dobirth.getTime();  
+    var age_dt = new Date(month_diff);   
+    var year = age_dt.getUTCFullYear();  
+    var age = Math.abs(year - 1970);  
+        if(dob==""){
+            document.getElementById('birth').innerHTML="Value Required";
+            return false;
+        }
+        if(age<=13){
+            document.getElementById('birth').innerHTML="Age is not valid";
+            return false;
+        }
+        if(pwd==""){
+            document.getElementById('passwords').innerHTML="Value Required";
+            return false;
+        }
+        if((pwd.length<6) || (pwd.length>16)){
+            document.getElementById('passwords').innerHTML="Password length is not valid";
+            return false;    
+        }
+        if(!(pwd.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,10}$/))  ){
+            document.getElementById('passwords').innerHTML="Password is not valid";
+            return false;
+        }
+    }
+</script>
+        
+</body>
+</html>
