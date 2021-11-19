@@ -1,0 +1,156 @@
+Question 1
+
+Ans1. for (var i = 0; i < 5; i++) {
+	console.log("Inside the loop:", i);
+}
+
+console.log("Outside the loop:", i);
+
+for (let j = 0; j < 5; j++) {
+	console.log("Inside the loop:", j);
+}
+
+console.log("Outside the loop:", j);
+
+
+output:
+
+VM104:2 Inside the loop: 0
+VM104:2 Inside the loop: 1
+VM104:2 Inside the loop: 2
+VM104:2 Inside the loop: 3
+VM104:2 Inside the loop: 4
+VM104:5 Outside the loop: 5
+VM104:8 Inside the loop: 0
+VM104:8 Inside the loop: 1
+VM104:8 Inside the loop: 2
+VM104:8 Inside the loop: 3
+VM104:8 Inside the loop: 4
+VM104:11 Uncaught ReferenceError: j is not defined
+    at <anonymous>:11:34
+(anonymous) @ VM104:11
+
+
+Hoisting: Hoisting is JavaScript's default behavior of moving declarations to the top.In JavaScript, a variable can be declared after it has been used.
+In other words; a variable can be used before it has been declared.
+
+
+
+Question 2
+
+Ans.
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>An unordered list:</p>
+<ul>
+  <li>Coffee</li>
+  <li>Tea</li>
+  <li>Milk</li>
+</ul>
+
+<p>Click the button to display the innerHTML of the second li element (index 1).</p>
+
+<button onclick="myFunction()">Try it</button>
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+  var x = document.getElementsByTagName("LI");
+  document.getElementById("demo").innerHTML = x[1].innerHTML;
+}
+</script>
+
+</body>
+</html>
+
+
+
+Question 3
+
+FOREACH LOOP:
+
+let sum = 0;
+const numbers = [65, 44, 12, 4];
+numbers.forEach(myFunction);
+
+function myFunction(item) {
+  sum += item;
+}
+console.log(sum);
+
+output: 125
+
+FOR IN LOOP:
+
+const object = { a: 1, b: 2, c: 3 };
+
+for (const property in object) {
+  console.log(`${property}: ${object[property]}`);
+}
+
+output:
+
+VM105:4 a: 1
+VM105:4 b: 2
+VM105:4 c: 3
+
+
+
+Question 4
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Bright colors</title>
+
+    </head>
+    <body>
+        <button id="bt" onclick="changeBg()">Click to change background image</button>
+        <button id="bt1" onclick="changeBg1()">Click to change background color</button>
+        <script>
+            function changeBg(){
+                document.body.style.backgroundImage="url(download.png)";
+                document.getElementById("bt").style.color="red";
+            }
+
+            function changeBg1(){
+                document.body.style.backgroundImage=null;
+                document.body.style.backgroundColor='red';
+                document.getElementById("bt1").style.color="yellow";
+            }
+        </script>
+    </body>
+</html>
+
+
+
+Question 5
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Bright colors</title>
+
+    </head>
+    <body>
+        <div onmousedown="mDown(this)" onmouseup="mUp(this)" style="background-color: grey; height:200px; width: 200px;">Click Me
+
+        </div>
+        <script>
+            function mDown(obj){
+                obj.style.backgroundColor="yellow";
+                obj.innerHTML="Color changed";
+            }
+
+            function mUp(obj){
+                obj.style.backgroundColor="purple";
+                obj.innerHTML="Again Color changed";
+            }
+        </script>
+    </body>
+</html>

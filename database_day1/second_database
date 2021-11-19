@@ -1,0 +1,56 @@
+
+
+1.  select count(*) as count from countries
+    where continent='Africa';
+    
+    Query Results
+    count
+    56
+    
+2.  select sum(population_years.population) as population from population_years
+    inner join countries on countries.id=population_years.country_id
+    where year=2005 and continent='Oceania'; 
+    
+    Query Results
+    population
+    32.66417
+    
+3.  select avg(population_years.population) as population from population_years
+    inner join countries on countries.id=population_years.country_id
+    where year=2003 and continent='South America'; 
+    
+    Query Results
+    population
+    25.8906514285714
+    
+4.  select min(population_years.population) as population, countries.name from population_years
+    inner join countries on countries.id=population_years.country_id
+    where year='2007'; 
+    
+    Query Results
+    population	    name
+    0.00216	    Niue
+    
+5.  select avg(population_years.population) as population from population_years
+    inner join countries on countries.id=population_years.country_id
+    where name ='Poland';
+    
+    Query Results
+    population
+    38.5606790909091
+    
+6.  select count(*) as count from population_years
+    inner join countries on countries.id=population_years.country_id
+    where name like '%The%';
+    
+    Query Results
+    count
+    33
+    
+7.     select population_years.year,sum(population_years.population) as population from   	    population_years
+      join countries on countries.id=population_years.country_id
+       where year='2010';
+       
+       Query Results
+       year	population
+       2010	6842.96425

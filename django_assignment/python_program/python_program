@@ -1,0 +1,230 @@
+########Urls.py file##############
+
+
+from django.urls import path
+
+from . import views
+
+urlpatterns = [
+  path('', views.HomeView.as_view(), name='home'),
+  path('lines/', views.LinesView.as_view(), name='lines'),
+  path('lines/new/',views.CreateLineView.as_view(),name='create_line'),
+  path('lines/<pk>/update/',views.UpdateLineView.as_view(),name='update_line'),
+  path('lines/<pk>/delete/',views.DeleteLineView.as_view(),name='delete_line'),
+  path("stations/", views.StationsView.as_view(), name="stations"),
+  path("stations/new/", views.CreateStationView.as_view(), name="create_station"),
+  path("stations/<pk>/update/", views.UpdateStationView.as_view(), name="update_station"),
+  path("stations/<pk>/delete/", views.DeleteStationView.as_view(), name="delete_station"),
+  path("stops/", views.StopsView.as_view(), name="stops"),
+  path("stops/new/", views.CreateStopView.as_view(), name="create_stop"),
+  path("stops/<pk>/update/", views.UpdateStopView.as_view(), name="update_stop"),
+  path("stops/<pk>/delete/", views.DeleteStopView.as_view(), name="delete_stop"),
+]
+
+
+#########forms.py file####################
+
+from django import forms
+from .models import Stop, Line, Station
+
+
+class StopForm(forms.ModelForm):
+  class Meta:
+    model = Stop
+    fields = "__all__"
+
+
+class LineForm(forms.ModelForm):
+  class Meta:
+    model = Line
+    fields = "__all__"
+
+
+class StationForm(forms.ModelForm):
+  class Meta:
+    model = Station
+    fields = "__all__"
+
+
+
+
+
+#############Views.py file######################
+
+
+
+from django.shortcuts import render
+from .models import Line, Station, Stop
+from .forms import  StopForm, LineForm, StationForm
+# Add your imports below:
+from django.views.generic import TemplateView
+from django.views.generic import ListView
+from django.views.generic.edit import CreateView,UpdateView,DeleteView
+
+class HomeView(TemplateView):
+  template_name = "routes/home.html"
+
+  def get_context_data(self):
+    context = super().get_context_data()
+    context["lines"] = Line.objects.all()
+    context["stations"] = Station.objects.all()
+    context["stops"] = Stop.objects.all()
+    return context
+
+# Create your views here.
+class LinesView(ListView):
+  model=Line
+  template_name='routes/lines.html'
+
+class CreateLineView(CreateView):
+  model=Line
+  template_name='routes/add_line.html'
+  form_class=LineForm
+
+class UpdateLineView(UpdateView):
+  model=Line
+  template_name='routes/update_line.html'
+  form_class=LineForm
+
+class DeleteLineView(DeleteView):
+  model=Line
+  template_name='routes/delete_line.html'
+  success_url='/lines'
+
+class StationsView(ListView):
+  model=Station
+  template_name='routes/stations.html'
+
+class CreateStationView(CreateView):
+  model=Station
+  template_name='routes/add_station.html'
+  form_class=StationForm
+
+class UpdateStationView(UpdateView):
+  model=Station
+  template_name='routes/update_station.html'
+  form_class=StationForm
+
+class DeleteStationView(DeleteView):
+  model=Station
+  template_name='routes/update_station.html'
+  success_url='/stations/'
+
+class StopsView(ListView):
+  model=Stop
+  template_name='routes/stops.html'
+
+class CreateStopView(CreateView):
+  model=Stop
+  template_name='routes/add_stop.html'
+  form_class=StopForm
+
+class UpdateStopView(UpdateView):
+  model=Stop
+  template_name='routes/update_stop.html'
+  form_class=StopForm
+
+class DeleteStopView(DeleteView):
+  model=Stop
+  template_name='routes/delete_stop.html'
+  success_url='/stops/'
+
+
+
+
+############base.html file######################
+
+
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="https://www.codecademy.com/favicon.ico"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'routes/style.css' %}"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>{% block title %}Django Djitney{% endblock %}</title>
+    {% block head %}{% endblock %}
+  </head>
+  <body>
+    <div class="app">
+      <header>
+        <div class="header-first-row">
+          <img
+            src="{% static 'routes/djitney.png' %}"
+            alt="Django Djitney Logo"
+            width="80px"
+          />
+          <h1 class="title">Django Djitney</h1>
+        </div>
+        <nav class="navbar">
+          <a class="nav-item" href="{% url 'home' %}">Home</a>
+<a class="nav-item" href="{% url 'lines' %}">Lines</a>
+<a class="nav-item" href="{% url 'stations' %}">Stations</a>
+<a class="nav-item" href="{% url 'stops' %}">Stops</a>
+        </nav>
+      </header>
+      <main>{% block content %}{% endblock %}</main>
+    </div>
+  </body>
+</html>
+
+
+  
+##########models.py file###################
+
+
+from django.db import models
+
+
+class Line(models.Model):
+  name = models.CharField(unique=True, max_length=200)
+
+  def get_absolute_url(self):
+    return "/lines"
+
+  def __str__(self):
+    return f"{self.name}"
+
+
+class Station(models.Model):
+  name = models.CharField(unique=True, max_length=200)
+  accessible = models.BooleanField(default=False)
+
+  def get_absolute_url(self):
+    return "/stations"
+
+  def __str__(self):
+    return f"{self.name}{' (♿)' if self.accessible else ''}"
+
+
+class Stop(models.Model):
+  # The snippet of code below ensures that no line can have two stops with the same stop number
+  class Meta:
+    unique_together = (('line', 'stop_number'))
+
+  def get_absolute_url(self):
+    return "/stops"
+
+  line = models.ForeignKey(Line, on_delete=models.CASCADE)
+  station = models.ForeignKey(Station, on_delete=models.CASCADE)
+  stop_number = models.PositiveIntegerField()
+
+  def __str__(self):
+    return f"{self.line.name} -- {self.station.name} [{self.stop_number}]"
+
+  
+
+

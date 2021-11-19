@@ -1,0 +1,138 @@
+Q1) What is JIRA?
+
+Ans.Jira is a suite of agile work management solutions that powers collaboration across all teams from concept to customer, empowering you to do the best work of your life, together. Jira offers several products and deployment options that are purpose-built for Software, IT, Business, Ops teams, and more.
+
+
+Q2) What are possible Task / Story / Epic States?
+
+Ans. Epic - An agile epic is a body of work that can be broken down into specific tasks (called user stories) based on the needs/requests of customers or end-users. Epics are an important practice for agile and DevOps teams.
+
+Story - Stories, also called “user stories,” are short requirements or requests written from the perspective of an end user.
+
+Task - A task is a work unit needed to achieve a story.
+In order to produce a story, the team needs to perform some activities structured as Tasks. As opposed to the other items presented here, a task is not part of the outcome of the project, it is rather the mean to produce the outcome.
+
+
+Q3) What can be referred to as an issue in Atlassian JIRA?
+
+Ans. Issues are the building blocks of any Jira project. An issue could represent a story, a bug, a task, or another issue type in your project.
+
+1.Selected issue: Select an issue to view its details.
+2.Backlog: Estimate issues and plan your sprints.
+3.Issue actions: Move an issue, clone it, log time spent working on it, and perform other actions.
+4.Issue details: See the assignee and description, make comments, and add content to the issue.
+
+
+Q4) List out the source control programs with which it integrates?
+
+Ans. Jira integrates with source control programs such as Clearcase, Concurrent Versions System (CVS), Git, Mercurial, Perforce, Subversion, and Team Foundation Server.
+
+
+Q5) Why use JIRA software?
+
+Ans. 1)Upfront and fair licensing policy
+2)Features that is not available elsewhere
+3)Get the latest update on the progress of projects
+4)It runs anywhere and recognized with many famous companies
+5)Easily extensible and customizable
+
+
+Q6) Is it possible to access the JIRA cloud site via a mobile device?
+
+Ans. Yes, it is possible to access JIRA cloud site via a mobile device. You have to use the URL of the JIRA cloud site in your mobile web browser.
+
+
+Q7) Explain labeling and linking issues in JIRA
+
+Labeling Issue:It enables you to categorize an issue in a more informal way than assigning it to a component or version. You can then search issues according to the label.
+LinkingIssue: This feature enables you to link an association between two issues on either on the same or different JIRA servers.
+
+
+Q8)  Name the types of reports generated in JIRA
+
+Ans.Average Age Report
+Pie Chart Report
+Resolution Time Report
+Recently Created Issues Report
+Resolved vs. Created Issues Report
+Single Level Group by Report
+Time Tracking Report
+User Workload Report
+Workload Pie Chart Report, etc.
+
+
+Q9) What is Cloning an Issue?
+
+Ans. To clone an issue means to create a duplicate issue within the same project. A cloned issue can be treated as a new issue and edited like other issues.
+We should consider the following points while cloning an issue.
+1)A cloned issue is completely a separate issue from the original issue.
+2)Any action or operation taken on the original issue does not have any impact on the clone issue and vice-versa.
+3)The only connection between the original and clone is the link that is created.
+
+
+Q10) What are the things not included in cloned issue in JIRA?
+
+Ans. Time tracking
+
+Issue History
+
+Comments
+
+
+Q11) How can you share an issue with other users in JIRA?
+
+Ans. You can email an issue by using the share option in JIRA. You can also email other JIRA users a link to the issue by sharing the issue with them or by mentioning them in an issue’s Description or Comment field.
+
+
+Q12) What does an issue change history include?
+
+Ans. Deletion of a comment
+
+Deletion of a work log
+
+Creation or removal of an issue link
+
+Attachment of a file
+
+Changes to an issue field
+
+
+Q13) Explain what does the three-color indicates tracking times or duration for an issue?
+
+Ans. Three colors will be displayed representing the amount of time spent behind the issue
+
+Original Estimate (Blue): The amount of time estimated initially to resolve the issue
+Remaining Estimate(Orange): The remaining amount of time left to resolve the issue
+Time Spent or Logged (Green): The amount of time spent so far while resolving the issue
+
+
+Q14) What is the Audit Log?
+
+Ans. The auditing feature tracks key activities in Jira products. These activities are recorded in an audit log that can be viewed in the Jira administration console. This can be a handy tool in helping you diagnose problems in Jira products or used for security and compliance purposes.
+
+
+Q15) For an Agile project, how user stories in JIRA are created?
+
+Ans. For an Agile project to create user stories in JIRA, follow below steps.
+
+Issue type -Epic and Issue type – Story linked to it. In order to do so, in the ‘Create Issue’ page, go to “Configure Fields” and select “Epic link” field to be included in the issue creation screen.
+Or you can have a product backlog by creating a main User story and having various sub-tasks under it.
+
+
+Q16)  State the difference between Bugzilla and JIRA?
+
+Ans.  Bugzilla	
+It is an Open Source
+Using Bugzilla might be little complicated for few due to grouping users and granting permissions
+Bugzilla allows you to show/hide the whole custom field or specific values based on the value of some other field
+Bugzilla’s has a powerful advanced search option
+
+
+JIRA
+
+It is a commercial tool
+For some using JIRA would be more convenient than Bugzilla
+JIRA enables conditional configuration based only on Type fields and Project.
+JIRA lacks advance-level search options. JIRA has a flexible JQL language (JIRA Query Language). It enables you to build arbitrary boolean expressions.
+
+

@@ -1,0 +1,115 @@
+1. What is EC2?
+
+Ans. Amazon Elastic Compute Cloud (Amazon EC2) is a web service that provides secure, resizable compute capacity in the cloud. It is designed to make web-scale cloud computing easier for developers. Amazon EC2’s simple web service interface allows you to obtain and configure capacity with minimal friction. It provides you with complete control of your computing resources and lets you run on Amazon’s proven computing environment.
+Amazon EC2 offers the broadest and deepest compute platform with choice of processor, storage, networking, operating system, and purchase model.
+
+
+2. What is CloudWatch?
+
+Ans. Amazon CloudWatch is a monitoring and observability service built for DevOps engineers, developers, site reliability engineers (SREs), and IT managers. CloudWatch provides you with data and actionable insights to monitor your applications, respond to system-wide performance changes, optimize resource utilization, and get a unified view of operational health. CloudWatch collects monitoring and operational data in the form of logs, metrics, and events, providing you with a unified view of AWS resources, applications, and services that run on AWS and on-premises servers. You can use CloudWatch to detect anomalous behavior in your environments, set alarms, visualize logs and metrics side by side, take automated actions, troubleshoot issues, and discover insights to keep your applications
+running smoothly.
+
+
+3. Explain what T2 instances are?
+
+Ans. T2 instances are a new low-cost, General Purpose instance type that are designed to provide a baseline level of CPU performance with the ability to burst above the baseline. With On-Demand Instance prices starting at $0.013 per hour ($9.50 per month), T2 instances are the lowest-cost Amazon EC2 instance option and are ideal for web servers, developer environments, and small databases.
+T2 instances are for workloads that don’t use the full CPU often or consistently, but occasionally need to burst to higher CPU performance. Many applications such as web servers, developer environments and small databases don’t need consistently high levels of CPU, but benefit significantly from having full access to very fast CPUs when they need them. T2 instances are engineered specifically for these use cases.
+
+
+4. What are Key-Pairs in AWS?
+
+Ans. A key pair, consisting of a public key and a private key, is a set of security credentials that you use to prove your identity when connecting to an Amazon EC2 instance. Amazon EC2 stores the public key on your instance, and you store the private key. 
+
+
+5. List different types of Cloud Services.
+
+Ans. 1 Infrastructure as a Service (IaaS)
+     2 Platform as a Service (PaaS)
+     3 Software as a Service (SaaS)
+     
+     
+6. Explain what S3 is?
+
+Ans. Amazon Simple Storage Service (Amazon S3) is an object storage service that offers industry-leading scalability, data availability, security, and performance. Customers of all sizes and industries can use Amazon S3 to store and protect any amount of data for a range of use cases, such as data lakes, websites, mobile applications, backup and restore, archive, enterprise applications, IoT devices, and big data analytics. Amazon S3 provides management features so that you can optimize, organize, and configure access to your data to meet your specific business, organizational, and compliance requirements.
+
+
+7. How can you send a request to Amazon S3?
+
+Ans. You can send requests to Amazon S3 using the REST API or the AWS SDK wrapper libraries that wrap the underlying Amazon S3 REST API, simplifying your programming tasks.
+
+
+8. What is the relation between the Availability Zone and Region?
+
+Ans. Each Region is a separate geographic area.
+Availability Zones are multiple, isolated locations within each Region.
+Local Zones provide you the ability to place resources, such as compute and storage, in multiple locations closer to your end users.
+
+
+9. What do you understand by stopping and terminating an EC2 Instance?
+
+Ans. Stopping an EC2 Instance - The EC2 “stopped” state indicates that an instance is shut down and cannot be used. Basically, it is a temporary shutdown for when you are not using an instance, but you will need it later.
+
+Terminating an EC2 Instance - When you terminate an EC2 instance, the instance will be shutdown and the virtual machine that was provisioned for you will be permanently taken away and you will no longer be charged for instance usage. Any data that was stored locally on the instance will be lost.
+
+
+10. What are the advantages of AWS IAM?
+
+Ans. 1. Improving User Experiences.
+     2. Enhancing Security Profiles.
+     3. Simplifies Auditing and Reporting.
+     4. Allows Easy Access No Matter Where You Are.
+     5. Increases Productivity and Reduces IT Costs.
+
+
+11. What do you understand by a Security Group?
+
+Ans. A security group is an AWS firewall solution that performs one primary function: to filter incoming and outgoing traffic from an EC2 instance. It accomplishes this filtering function at the TCP and IP layers, via their respective ports, and source/destination IP addresses.
+
+
+12. Is there a way to upload a file that is greater than 100 Megabytes in Amazon S3?
+
+Ans. To upload a file greater than 100 megabytes, we have to use Multipart upload utility from AWS. By using Multipart upload we can upload a large file in multiple parts. Each part will be independently uploaded.
+
+
+13. Mention what the difference between Amazon S3 and EC2 is?
+
+Ans. An EC2 instance is like a remote computer running Windows or Linux and on which you can install whatever software you want, including a Web server running PHP code and a database server where as Amazon S3 is just a storage service, typically used to store large binary files. Amazon also has other storage and database services, like RDS for relational databases and DynamoDB for NoSQL.
+
+
+14. What are the advantages of auto-scaling?
+
+Ans. 1.Better fault tolerance
+     2. Better availability
+     3. Better cost management
+     
+     
+15. What is SQS?
+
+Ans. Amazon Simple Queue Service (SQS) is a fully managed message queuing service that enables you to decouple and scale microservices, distributed systems, and serverless applications. SQS eliminates the complexity and overhead associated with managing and operating message-oriented middleware, and empowers developers to focus on differentiating work. Using SQS, you can send, store, and receive messages between software components at any volume, without losing messages or requiring other services to be available.
+
+
+16. What is AWS Lambda?
+
+Ans. AWS Lambda is a compute service that lets you run code without provisioning or managing servers. Lambda runs your code on a high-availability compute infrastructure and performs all of the administration of the compute resources, including server and operating system maintenance, capacity provisioning and automatic scaling, code monitoring and logging. With Lambda, you can run code for virtually any type of application or backend service. All you need to do is supply your code in one of the languages that Lambda supports.
+
+
+17. Name some of the DB engines which can be used in AWS RDS
+
+Ans. Amazon Aurora, PostgreSQL, MySQL, MariaDB, Oracle Database, and SQL Server.
+
+
+18. What are EBS Volumes?
+
+Ans. An Amazon EBS volume is a durable, block-level storage device that you can attach to your instances. After you attach a volume to an instance, you can use it as you would use a physical hard drive. EBS volumes are flexible. For current-generation volumes attached to current-generation instance types, you can dynamically increase size, modify the provisioned IOPS capacity, and change volume type on live production volumes.
+
+
+19. What is Redshift?
+
+Ans. Amazon Redshift is a fully managed, petabyte-scale data warehouse service in the cloud. You can start with just a few hundred gigabytes of data and scale to a petabyte or more. This enables you to use your data to acquire new insights for your business and customers.
+
+
+20. What is SNS?
+
+Ans. Amazon Simple Notification Service (Amazon SNS) is a fully managed messaging service for both application-to-application (A2A) and application-to-person (A2P) communication.
+
+

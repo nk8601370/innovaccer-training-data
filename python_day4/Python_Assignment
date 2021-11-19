@@ -1,0 +1,60 @@
+from nile import get_distance, format_price, SHIPPING_PRICES
+from test import test_function
+
+
+
+#Python Program
+def calculate_shipping_cost(from_coords, to_coords, shipping_type='Overnight'):
+  #Python Program
+  from_lat, from_long = from_coords
+  to_lat, to_long = to_coords
+  #Python Program
+  distance = get_distance(from_lat, from_long, to_lat, to_long)
+  #Python Program
+  shipping_rate = SHIPPING_PRICES[shipping_type]
+  #Python Program
+  price = distance * shipping_rate
+  #Python Program
+  return format_price(price)
+#Python Program
+test_function(calculate_shipping_cost)
+
+#Python Program
+def calculate_driver_cost(distance, *drivers):
+  #Python Program
+  cheapest_driver=None
+  cheapest_driver_price=None
+  #Python Program
+  for driver in drivers:
+    #Python Program
+    driver_time=driver.speed*distance
+    #Python Program
+    price_for_driver=driver.salary*driver_time
+    #Python Program
+    if cheapest_driver is None:
+      cheapest_driver = driver
+      cheapest_driver_price = price_for_driver
+    #Python Program
+    elif price_for_driver < cheapest_driver_price:
+      cheapest_driver=driver
+      cheapest_driver_price=price_for_driver
+  #Python Program
+  return cheapest_driver_price,cheapest_driver
+#Python Program
+test_function(calculate_driver_cost)
+
+#Python Program
+def calculate_money_made(**trips):
+  #Python Program
+  total_money_made=0
+  #Python Program
+  for trip_id, trip in trips.items():
+    #Python Program
+    trip_revenue = trip.cost - trip.driver.cost
+    #Python Program
+    total_money_made += trip_revenue
+  #Python Program
+  return total_money_made
+#Python Program
+test_function(calculate_money_made)
+

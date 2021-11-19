@@ -1,0 +1,303 @@
+Question 1:- KELVIN WEATHER
+
+sol : // value 293 is assigned to the variable kelvin
+var kelvin=293;
+
+//subtracting 273 from kelvin and storing it in celsius variable
+const celsius=kelvin-273;
+
+//converting celsius to farenheit by the given formula and storing it in farenheit variable
+var farenheit=celsius * (9/5) + 32;
+// to round the value of farenheit 
+farenheit=Math.floor(farenheit);
+
+console.log(`The temperature is ${farenheit} degrees Fahrenheit.`);
+
+// Convert to Newton
+let newton = celsius * (33 / 100);
+// Round down
+newton = Math.floor(newton);
+console.log(`The temperature is ${newton} degrees Newton.`);
+
+
+output :  The temperature is 68 degrees Fahrenheit.
+	   The temperature is 6 degrees Newton.
+
+
+
+
+Question 2:- DOG YEARS
+
+sol:- 
+
+//storing my age in the variable named myAge
+var myAge=22;
+
+//created a variable earlyYears and assigned value 2 to it
+var earlyYears = 2;
+
+earlyYears*=10.5;
+
+//subtracting 2 from myAge and storing it in variable named laterYears
+var laterYears = myAge-2;
+
+// multiplying laterYears by 4
+laterYears*=4;
+
+console.log(earlyYears);
+console.log(laterYears);
+
+var myAgeInDogYears = earlyYears+laterYears;
+
+var myName='Nikhil'.toLowerCase();
+
+console.log(`My name is ${myName}. I am ${myAge} years old in human years which is ${myAgeInDogYears} years old in dog years.`)
+
+
+output:-
+
+21
+80
+My name is nikhil. I am 22 years old in human years which is 101 years old in dog years.
+
+
+
+Question 3:-  MAGIC EIGHT BALL
+
+sol:- 
+
+userName ='';
+(userName)? console.log(`Hello, ${userName}`): console.log(`Hello!`)
+
+const userQuestion = 'Will I become a werewolf tonight?';
+
+console.log(`The user asked: ${userQuestion}`);
+
+var randomNumber=Math.floor(Math.random() * 8);
+
+var eightBall = '';
+
+switch(randomNumber){
+  case 0:
+    eightBall='It is certain';
+    break;
+  case 1:
+    eightBall='It is decidedly so';
+    break;
+  case 2:
+    eightBall='Reply hazy try again';
+    break;
+  case 2:
+    eightBall='Cannot predict now';
+    break;
+  case 4:
+    eightBall='Do not count on it';
+    break;
+  case 5:
+    eightBall='My sources say no';
+    break;
+  case 6:
+    eightBall='Outlook not so good';
+    break;
+  case 7:
+    eightBall='Signs point to yes';
+    break;
+  default:
+    eightball='No answer';
+    break;
+}
+console.log(eightBall);
+
+output :- Hello!
+The user asked: Will I become a werewolf tonight?
+It is certain
+
+
+
+Question 4:- RACE DAY
+
+sol:-
+
+let raceNumber = Math.floor(Math.random()*1000);
+
+let isRegisteredEarly = true;
+
+let runnersAge = 22;
+
+
+isRegisteredEarly ? (raceNumber) : (raceNumber += 1000);
+
+if (runnersAge > 18 && isRegisteredEarly === true) {
+  console.log('Your race starts at 9:30 AM. Your race number is ' + raceNumber + '.');
+
+} else if (runnersAge > 18 || isRegisteredEarly === true) {
+  console.log('Your race starts at 11:00 AM. Your race number is ' + raceNumber + '.');
+
+} else if (runnersAge < 18 && !isRegisteredEarly === true) {
+  console.log('Your race starts at 12:30 PM. Your race number is ' + raceNumber + '.');
+
+} else {
+  console.log('Please report to the registration desk.')
+}
+
+
+output:-  Your race starts at 9:30 AM. Your race number is 961.
+
+
+
+
+Question 5:- Rock, Paper, or Scissors
+
+sol:- 
+
+const getUserChoice= userInput => {
+userInput = userInput.toLowerCase();
+if (userInput === 'rock' || userInput === 'paper' || userInput==='scissors' || userInput==='bomb') {
+  return userInput;
+} else {
+  console.log('Error!');
+}
+}
+var getComputerChoice=()=>{
+  var randomNumber=Math.floor(Math.random() * 3);
+  switch (randomNumber) {
+  case 0:
+    return 'rock';
+  case 1:
+    return 'paper';
+  case 2:
+    return 'scissors';
+  default:
+    return 'errors';
+}
+}
+
+function determineWinner(userChoice, computerChoice){
+  if(userChoice==='bomb')
+  {
+    return 'user win';
+  }
+  if (userChoice === computerChoice) {
+  return 'The game is a tie!';
+}
+if(userChoice==='rock'){
+  if(computerChoice==='paper'){
+    return 'computer won';
+  }
+  else{
+    return 'user won';
+  }
+}
+if(userChoice==='paper'){
+  if(computerChoice==='scissors'){
+    return 'computer win';
+  }
+  else{
+    return 'user win';
+  }
+}
+if(userChoice==='scissors'){
+  if(computerChoice==='rock'){
+    return 'computer win';
+  }
+  else{
+    return 'user win';
+  }
+}
+}
+
+// console.log(determineWinner('paper', 'scissors')); // prints something like 'The computer won!'
+// console.log(determineWinner('paper', 'paper')); // prints something like 'The game is a tie!'
+// console.log(determineWinner('paper', 'rock')); // prints something like 'The user won!'
+
+const playGame = () => {
+  const userChoice = getUserChoice('bomb');
+  const computerChoice = getComputerChoice();
+  console.log('You threw: ' + userChoice);
+  console.log('The computer threw: ' + computerChoice);
+  console.log(determineWinner(userChoice,computerChoice));
+};
+
+playGame();
+
+
+output:-  You threw: bomb
+The computer threw: scissors
+user win
+
+
+
+Question 6:-  Sleep Debt Calculator
+
+sol:-  
+
+const getSleepHours = day => {
+  if (day === 'monday') {
+    return 8;
+  } else if(day === 'tuesday') {
+    return 7;
+  }
+  else if(day === 'wednesday') {
+    return 9;
+  }
+  else if(day === 'thursday') {
+    return 6;
+  }
+  else if(day === 'friday') {
+    return 8;
+  }
+  else if(day === 'saturday') {
+    return 10;
+  }
+  else{
+    return 11;
+  }
+};
+console.log(getSleepHours('tuesday')); 
+console.log(getSleepHours('wednesday')); 
+console.log(getSleepHours('thursday')); 
+console.log(getSleepHours('friday'));
+console.log(getSleepHours('saturday')); 
+console.log(getSleepHours('sunday')); 
+console.log(getSleepHours('monday'));  
+
+const getActualSleepHours=()=>{
+  return getSleepHours('tuesday')+getSleepHours('wednesday')+getSleepHours('thursday')+getSleepHours('friday')+getSleepHours('saturday')+getSleepHours('sunday')+getSleepHours('monday');
+}
+
+const getIdealSleepHours = () => {
+  const idealHours = 7.5;
+  return idealHours * 7;
+};
+
+console.log(getActualSleepHours());
+console.log(getIdealSleepHours());
+
+const calculateSleepDebt=()=>{
+  var actualSleepHours=getActualSleepHours();
+  var idealSleepHours=getIdealSleepHours();
+
+  if(actualSleepHours==idealSleepHours){
+    console.log("user got the perfect amount of sleep");
+  }
+    else if(actualSleepHours > idealSleepHours){
+    console.log('You got ' + (actualSleepHours - idealSleepHours) + ' hour(s) more sleep than you needed this week. Sleep less.');
+  }
+  else if(actualSleepHours < idealSleepHours){
+   console.log('You got ' + (idealSleepHours - actualSleepHours) + ' hour(s) less sleep than you needed this week. Get some rest.');
+  }
+}
+
+calculateSleepDebt();
+
+
+output:-  7
+9
+6
+8
+10
+11
+8
+59
+52.5
+You got 6.5 hour(s) more sleep than you needed this week. Sleep less.

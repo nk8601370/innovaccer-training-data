@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Hello
+        </title>
+    </head>
+    <body id="by">
+        <h1 id="a"> Hello</h1>
+        <p id="b"> hi bye bye</p>
+        <img id="im" src="">
+        <h3 onClick="changeText(this)">Let see what happens</h3>
+        <button id="bt" onclick="displayDate()">Show today's date</button>
+        <p id="d"></p>
+        Enter Data : <input type="text" id="txt" onchange="UpperCase()">
+        <p id="up">To show the uppercase data </p>
+
+        <div onmousedown="mDown(this)" onmouseup="mUp(this)" style="background-color: grey; height:200px; width: 200px;">Click Me
+
+        </div>
+
+        <button id="bt" onclick="changeBg()">Click me</button>
+        <button id="bt1" onclick="changeBg()">Click me</button>
+        <script>
+
+            function changeBg(){
+                document.body.style.backgroundImage="url(download.png)";
+                document.getElementById("bt").style.color="red";
+            }
+
+            function mDown(obj){
+                obj.style.backgroundColor="yellow";
+                obj.innerHTML="Color changed";
+            }
+
+            function mUp(obj){
+                obj.style.backgroundColor="purple";
+                obj.innerHTML="Again Color changed";
+            }
+
+            function UpperCase(){
+                const a=document.getElementById("txt");
+                a.value=a.value.toUpperCase();
+            }
+            //document.getElementById("bt").onclick=displayDate;
+            function displayDate(){
+                document.getElementById("d").innerHTML=Date();
+            }
+            function changeText(id){
+                id.innerHTML="Text changed";
+            }
+            document.getElementById("a").innerHTML="Hello Nikhil";
+            document.getElementById("b").innerHTML="Bye Bye Nikhil";
+            document.getElementById("by").style.backgroundColor="red";
+            document.getElementById("im").src="download.png";
+        </script>
+    </body>
+</html>
+
+<!-- var first_name=prompt("Enter first name");
+           var last_name=prompt("Enter last name");
+           document.writeln(first_name+" "+last_name);
+           document.write("<br>");
+           var a=parseInt(prompt("Enter first number"));
+           var b=parseInt(prompt("Enter second number"));
+           var c=a+b;
+           var d=a*b;
+           var e=a-b;
+           var f=a/b;
+           document.writeln("Addition:"+c);
+           document.write("<br>");
+           document.writeln("Multiplication:"+d);
+           document.write("<br>");
+           document.writeln("subtraction:"+e);
+           document.write("<br>");
+           document.writeln("Division:"+f);
+
+           var d=5;
+           d+=5;
+           console.log(d);
+           d-=1;
+           console.log(d);
+           d*=5;
+           console.log(d);
+           d/=5;
+           console.log(d); -->
+            

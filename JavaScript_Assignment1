@@ -1,0 +1,40 @@
+Q1
+
+var name="Nikhil Kumar";
+            console.log(name.charAt(5));
+            console.log(name.charCodeAt(5));
+            var str1="abcd";
+            var str2="efgh";
+            var str3="ijkl";
+            var res=str1.concat(str2,str3);
+            console.log(res);
+            var a=String.fromCharCode(65,66,67,68,69);
+            console.log(a);
+            var text = "Hello world, welcome to the universe.";
+            console.log(text.indexOf("e", 5));
+            var text = "Hello planet earth, you are a great planet.";
+            console.log(text.lastIndexOf("planet", 20));
+            
+output
+
+VM92:2 l
+VM92:3 108
+VM92:8 abcdefghijkl
+VM92:10 ABCDE
+VM92:12 14
+VM92:14 6
+
+
+Q2
+
+var a=parseInt(prompt("Enter first number"));
+var b=parseInt(prompt("Enter second number"));
+var c=a+b;document.writeln("Addition:"+c);
+
+input: 10,20
+
+output: Addition:30
+
+We are getting this output because we are converting the entered value to integer using the parseInt function. If we don't use the parseInt function it will take the two values as string and concat them so the result will be 1020.
+           
+           

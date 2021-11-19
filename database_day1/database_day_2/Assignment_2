@@ -1,0 +1,65 @@
+--Query 1
+
+select * from customers limit 10;
+select * from orders limit 10;
+select * from books limit 10;
+
+--Query 2
+
+select * from pg_indexes where tablename='customers';
+select * from pg_indexes where tablename='books';
+select * from pg_indexes where tablename='orders';
+
+--Query 3
+
+create index ord_cust_id on orders(customer_id);
+create index ord_book_id on orders(book_id);
+
+--Query 4
+
+explain analyze select original_language,title,sales_in_millions from books where original_language='French';
+
+--Query 5
+
+select pg_size_pretty(pg_total_relation_size('books'));
+
+--Query 6
+
+create index books_org_lang_title on books(original_language,title,sales_in_millions);
+
+--Query 7
+
+select * from customers limit 10;
+select * from orders limit 10;
+select * from books limit 10;
+
+select pg_size_pretty(pg_total_relation_size('customers'));
+select pg_size_pretty(pg_total_relation_size('books'));
+select pg_size_pretty(pg_total_relation_size('orders'));
+
+--Query 8
+
+drop index books_org_lang_title;
+
+--Query 9 And Query 10
+
+drop index ord_cust_id;
+drop index ord_book_id;
+
+select now();
+\copy orders from'orders_add.txt'
+DELIMETER ',' CSV HEADER;
+select now();
+
+
+
+create index ord_cust_id on orders(customer_id);
+create index ord_book_id on orders(book_id);
+
+--QUERY 11
+
+create index cust_fir_las_ema_add on customers(first_name,last_name,email_address);
+
+
+
+

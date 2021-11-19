@@ -1,0 +1,78 @@
+1.  	SELECT DISTINCT year from population_years;
+
+	Query Results
+	year
+	2000
+	2001
+	2002
+	2003
+	2004
+	2005
+	2006
+	2007
+	2008
+	2009
+	2010
+
+2.  	select max(population) from population_years
+    	where country="Gabon";
+    
+    	Query Results
+    	max(population)
+    	1.54526
+    	
+3.	select country from population_years
+	order by population asc
+	Limit 10;
+	
+	Query Results
+	country
+	Former Serbia and Montenegro
+	Former Serbia and Montenegro
+	Former Serbia and Montenegro
+	Former Serbia and Montenegro
+	Former Serbia and Montenegro
+	Timor-Leste (East Timor)
+	Timor-Leste (East Timor)
+	Timor-Leste (East Timor)
+	Niue
+	Niue
+	
+4. 	select distinct country from population_years
+	where population > 100 and year='2010';
+	
+	Query Results
+	country
+	Mexico
+	United States
+	Brazil
+	Russia
+	Nigeria
+	Bangladesh
+	China
+	India
+	Indonesia
+	Japan
+	Pakistan
+	
+5.	select  count(country) as count from population_years
+	where country LIKE '%Islands%';
+        
+        Query Results
+	count
+	99
+	
+	
+6.	select  population  from population_years
+	where country='Indonesia' and year='2000';
+
+	select  population  from population_years
+	where country='Indonesia' and year='2010';
+	
+	Query Results
+	population
+	214.67661
+	population
+	242.96834
+	
+	final result 28.29172 Million

@@ -1,0 +1,188 @@
+####Script.py file ####
+
+#Python Program
+
+from roster import student_roster
+from classroom_organizer import ClassroomOrganizer
+import itertools
+
+#Python Program
+
+new_student = ClassroomOrganizer()
+student_roster_iterator = iter(student_roster)
+for each_student in range(len(student_roster)):
+  print(next(student_roster_iterator))
+
+#Python Program
+
+for each_name in new_student.sorted_names: 
+  print(each_name[:-1])
+
+#Python Program
+
+two_students = new_student.two_students_combos()
+print(two_students)
+
+#Python Program
+
+math_science_list = list(itertools.chain(new_student.get_students_with_subject("Math"), new_student.get_students_with_subject("Science")))
+print(math_science_list)
+
+math_science_fours = list(itertools.combinations(math_science_list, 4))
+print(math_science_fours)
+
+
+#Python Program
+
+for item in sorted(new_student.get_student_name_animal()):
+  print("{} - {}".format(item[0], item[1]))
+
+for item in sorted(new_student.get_students_with_info()):
+  print('{}: {} years, {}"'.format(item[0], item[1], item[2]))
+  
+  
+  
+  
+#######Roster.py File######
+
+student_roster = [
+  {
+    "name": "Karina M",
+    "age": 8,
+    "height": 48,
+    "favorite_subject": "Math",
+    "favorite_animal": "Dog"
+  },
+  {
+    "name": "Yori K",
+    "age": 7,
+    "height": 50,
+    "favorite_subject": "Art",
+    "favorite_animal": "Cat"
+  },
+  {
+    "name": "Alex C",
+    "age": 7,
+    "height": 47,
+    "favorite_subject": "Science",
+    "favorite_animal": "Cow"
+  },
+  {
+    "name": "Esmeralda R",
+    "age": 8,
+    "height": 52,
+    "favorite_subject": "History",
+    "favorite_animal": "Rabbit"
+  },
+  {
+    "name": "Sandy P",
+    "age": 7,
+    "height": 49,
+    "favorite_subject": "Recess",
+    "favorite_animal": "Guinea Pig"
+  },
+  {
+    "name": "Matthew Q",
+    "age": 7,
+    "height": 46,
+    "favorite_subject": "Music",
+    "favorite_animal": "Walrus"
+  },
+  {
+    "name": "Trudy B",
+    "age": 8,
+    "height": 45,
+    "favorite_subject": "Science",
+    "favorite_animal": "Ladybug"
+  },
+  {
+    "name": "Benny D",
+    "age": 7,
+    "height": 51,
+    "favorite_subject": "Math",
+    "favorite_animal": "Ant"
+  },
+  {
+    "name": "Helena L",
+    "age": 7,
+    "height": 53,
+    "favorite_subject": "Art",
+    "favorite_animal": "Butterfly"
+  },
+  {
+    "name": "Marisol R",
+    "age": 8,
+    "height": 50,
+    "favorite_subject": "Math",
+    "favorite_animal": "Lion"
+  }
+]
+
+
+
+#########classroom_organizer.py file###################
+
+#Python Program
+
+from roster import student_roster
+import itertools
+from itertools import permutations
+
+
+class ClassroomOrganizer:
+  def __init__(self):
+    self.sorted_names = self._sort_alphabetically(student_roster)
+
+#Python Program
+
+  def __iter__(self):
+    self.index = 0
+    return self
+
+#Python Program
+
+  def __next__(self):
+    each_student = self.sorted_names[self.index]
+    self.index += 1
+    if self.index >= 10:
+      raise StopIteration
+    return each_student
+
+  def _sort_alphabetically(self, students):
+    names = []
+    for student_info in students:
+      name = student_info['name']
+      names.append(name)
+    return sorted(names)
+    
+#Python Program
+
+  def two_students_combos(self):
+    two_combos = []
+    twos = itertools.combinations(self.sorted_names, 2)
+    for two in twos:
+      two_combos.append(two)    
+    return two_combos
+
+  def get_students_with_subject(self, subject):
+    selected_students = []
+    for student in student_roster:
+      if student['favorite_subject'] == subject:
+        selected_students.append((student['name'], subject))
+    return selected_students
+    
+#Python Program
+
+  def get_student_name_animal(self):
+    fav_animals = []
+    for student in student_roster:
+      fav_animals.append((student["name"], student["favorite_animal"]))
+    return fav_animals
+    
+#Python Program
+          
+  def get_students_with_info(self):
+    name_age_height = []
+    for student in student_roster:
+      name_age_height.append((student['name'], student["age"], student["height"]))
+    return name_age_height
