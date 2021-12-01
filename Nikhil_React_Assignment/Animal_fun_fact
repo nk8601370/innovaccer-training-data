@@ -1,0 +1,78 @@
+------------------App.js file------------
+
+import { animals } from './animals';
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+const title="";
+
+let images = []
+const showBackground = true
+
+function displayFact(e) {
+  let facts = animals[e.target.alt].facts
+  document.getElementById('fact').innerHTML = facts[Math.floor(Math.random() * facts.length)]
+}
+
+for (const animal in animals) {
+  images.push(
+    <img
+    key={animal}
+    className='animal'
+    alt={animal}
+    src={animals[animal].image}
+    ariaLabel={animal}
+    role='button'
+    onClick={displayFact}
+    />
+    )
+}
+
+const background = <img alt="ocean" src="/images/ocean.jpg" />
+const animalFacts = (
+  <div>
+    <h1 style={{"position": "absolute"}}>Click an animal for a fun fact</h1>
+    {showBackground && background}
+    <p id='fact'></p>
+    <div className="animals">
+      {images}
+    </div>
+  </div>
+)
+ReactDOM.render(animalFacts, document.getElementById("root"));
+
+
+--------------------------Animal.js file------------
+
+export const animals = {
+  dolphin: {
+    image: '/images/dolphin.jpg',
+    facts: ['Dolphins have been shown to give distinct names to each other!', 'Dolphins are known to display their own culture!', 'Dolphins have two stomachs!']
+  },
+  lobster: {
+    image: '/images/lobster.jpg',
+    facts: ['Lobsters taste with their legs!', 'Lobsters chew with their stomachs!', 'Lobsters can live as long as 100 years.']
+  },
+  starfish: {
+    image: '/images/starfish.jpg',
+    facts: ['Starfish can have up to 40 arms!', 'Starfish have no brain and no blood!', 'Starfish can regenerate their own arms!']
+  }
+};
+
+
+
+------------------------index.html file----------------
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="https://content.codecademy.com/courses/React/react-course-bundle.min.js"></script>
+	<script src="/app.compiled.js"></script>
+  </body>
+</html>
+
